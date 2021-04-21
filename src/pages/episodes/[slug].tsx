@@ -40,7 +40,8 @@ export default function Episode({ episode }: EpisodeProps) {
                     width={700}
                     height={160}
                     src={episode.thumbnail}
-                    objectFit="cover" />
+                    objectFit="cover" 
+                />
                 <button>
                     <img src="/play.svg" alt="Tocar Episódio" />
                 </button>
