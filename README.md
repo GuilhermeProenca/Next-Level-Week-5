@@ -1,14 +1,15 @@
 # 🛠 Technologies
-- JavaScript
-- ReactJS
-- TypeScript
-- NextJS
-- NodeJS
-- HTML
-- CSS (with Sass)
-- Yarn or Npm
-- Visual Studio Code
-# Required! Install git, node and yarn (or npm)
+### - JavaScript
+### - ReactJS
+### - TypeScript
+### - NextJS
+### - NodeJS
+### - HTML
+### - CSS (with Sass)
+### - Yarn or Npm
+### - Visual Studio Code
+
+# 🖥️ Required! Install git, node and yarn (or npm)
 ```
 # Clone Repository
 $ git clone https://github.com/GuilhermeProenca/Next-Level-Week-5.git
