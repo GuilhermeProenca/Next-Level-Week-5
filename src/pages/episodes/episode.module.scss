@@ -16,7 +16,7 @@
         border-radius: 0.75rem;
         border: 0;
         position: absolute;
-        z-index: 5;
+        z-index: 1;
         font-size: 0;
   
         transition: filter 0.2s;
@@ -43,7 +43,7 @@
   
     header {
       padding-bottom: 1rem;
-      border-bottom: 1pc solid var(--gray-100);
+      border-bottom: 1px solid var(--gray-100);
   
       h1 {
         margin-top: 2rem;
@@ -60,11 +60,11 @@
           position: relative;
   
           &::before {
-            content: '';
+            content: "";
             width: 4px;
             height: 4px;
             border-radius: 2px;
-            background: #ddd;
+            background: #DDD;
             position: absolute;
             left: 0;
             top: 50%;
