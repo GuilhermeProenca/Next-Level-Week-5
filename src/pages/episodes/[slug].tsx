@@ -3,6 +3,7 @@ import{ format, parseISO } from 'date-fns';
 import { api } from '../../services/api';
 import { convertDurationToTimeString } from '../../utilis/convertDurationToTimeString';
 import { usePlayer } from '../../contexts/PlayerContext';
+import { DarkUsePlayer } from '../../contexts/PlayerContextDarkTheme';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -31,39 +32,45 @@ type EpisodeProps = {
 
 export default function Episode({ episode }: EpisodeProps) {
     const { play } = usePlayer();
+
+    const {
+        isDark
+    } = DarkUsePlayer();
     
     return (
-        <div className={styles.episode}>
+        <div className={isDark ? styles.dark : ""}>
+            <div className={isDark ? styles.darkEpisode : styles.episode}>
 
-        <Head>
-            <title>{episode.title} | Podcastr</title>
-        </Head>
+            <Head>
+                <title>{episode.title} | Podcastr</title>
+            </Head>
 
-            <div className={styles.thumbnailContainer}>
-                <Link href="/">
-                    <button type="button">
-                        <img src="/arrow-left.svg" alt="Voltar" />
+                <div className={styles.thumbnailContainer}>
+                    <Link href="/">
+                        <button type="button">
+                            <img src="/arrow-left.svg" alt="Voltar" />
+                        </button>
+                    </Link>
+                    <Image
+                        width={700}
+                        height={160}
+                        src={episode.thumbnail}
+                        objectFit="cover" 
+                    />
+                    <button type="button" onClick={() => play(episode)}> 
+                        <img src="/play.svg" alt="Tocar Episódio" />
                     </button>
-                </Link>
-                <Image
-                    width={700}
-                    height={160}
-                    src={episode.thumbnail}
-                    objectFit="cover" 
-                />
-                <button type="button" onClick={() => play(episode)}> 
-                    <img src="/play.svg" alt="Tocar Episódio" />
-                </button>
+                </div>
+
+                <header>
+                    <h1>{episode.title}</h1>
+                    <span>{episode.members}</span>
+                    <span>{episode.publishedAt}</span>
+                    <span>{episode.durationAsString}</span>
+                </header>
+
+                <div className={styles.description} dangerouslySetInnerHTML={{ __html: episode.description }} />
             </div>
-
-            <header>
-                <h1>{episode.title}</h1>
-                <span>{episode.members}</span>
-                <span>{episode.publishedAt}</span>
-                <span>{episode.durationAsString}</span>
-            </header>
-
-            <div className={styles.description} dangerouslySetInnerHTML={{ __html: episode.description }} />
         </div>
     )
 }
