@@ -68,3 +68,21 @@ h2 {
 button {
     cursor: pointer;
 }
+
+::-webkit-scrollbar {
+    width: 18px;
+  }
+  
+::-webkit-scrollbar-track {
+    background: var(--white);
+}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: solid 2px var(--white);
+    background: var(--gray-200);
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #a8aaaa;
+}
