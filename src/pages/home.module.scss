@@ -3,6 +3,8 @@
     height: calc(100vh - 6.5rem);
     overflow-y: scroll;
 
+    transition: 0.8s;
+
     h2 {
         margin-top: 3rem;
         margin-bottom: 1.5rem;
@@ -12,6 +14,8 @@
 .darkHomePage {
     background-color: var(--dark-background);
     color: var(--white);
+
+    transition: 0.8s;
 
     padding: 0 4rem;
     height: calc(100vh - 6.5rem);

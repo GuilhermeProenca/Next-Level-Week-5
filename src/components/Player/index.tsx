@@ -1,16 +1,17 @@
 import { useRef, useEffect, useState } from 'react';
 import { usePlayer } from '../../contexts/PlayerContext';
+import { convertDurationToTimeString } from '../../utilis/convertDurationToTimeString';
 
 import Image from 'next/image';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
 import styles from './styles.module.scss';
-import { convertDurationToTimeString } from '../../utilis/convertDurationToTimeString';
 
 export function Player() {
     const audioRef = useRef<HTMLAudioElement>(null);
     const [progress, setProgress] = useState(0);
+    const [volume, setVolume] = useState(.5)
     
     const { 
         episodeList,
@@ -26,7 +27,9 @@ export function Player() {
         playPrevious,
         hasNext,
         hasPrevious,
-        clearPlayerState
+        clearPlayerState,
+        isMuted,
+        setMutedState
     } = usePlayer();
 
     useEffect(() => {
@@ -35,6 +38,7 @@ export function Player() {
         }
 
         if (isPlaying) {
+            audioRef.current.volume = volume;
             audioRef.current.play();
         } else {
             audioRef.current.pause();
@@ -50,18 +54,34 @@ export function Player() {
         });
     }
 
-    function handSeek(amount: number) {
+    function handleSeek(amount: number) {
         audioRef.current.currentTime = amount;
         setProgress(amount);
     }
 
-    function handEpisodeEnded() {
+    function handleEpisodeEnded() {
         if (hasNext) {
             playNext();
         } else {
             clearPlayerState();
         }
     }
+
+    function handleVolume(amount: number) {
+        amount = amount / 100
+        audioRef.current.volume = amount
+        setVolume(amount)
+      }
+    
+      function handleMuted() { 
+        setMutedState(true);
+        audioRef.current.volume = 0;
+      }
+    
+      function handleIsMuted() {
+        setMutedState(false);
+        audioRef.current.volume = volume;
+      }
 
     const episode = episodeList[currentEpisodeIndex];
 
@@ -97,7 +117,7 @@ export function Player() {
                             <Slider
                                 max={episode.duration}
                                 value={progress}
-                                onChange={handSeek}
+                                onChange={handleSeek}
                                 trackStyle={{ backgroundColor: '#04d361' }}
                                 railStyle={{ backgroundColor: '#9f75ff' }}
                                 handleStyle={{ borderColor: '#04d361', borderWidth: 4 }}
@@ -115,7 +135,7 @@ export function Player() {
                         ref={audioRef}
                         loop={isLooping}
                         autoPlay
-                        onEnded={handEpisodeEnded}
+                        onEnded={handleEpisodeEnded}
                         onPlay={() => setPlayingState(true)}
                         onPause={() => setPlayingState(false)}
                         onLoadedMetadata={setupProgressListener}
@@ -155,7 +175,33 @@ export function Player() {
                     >
                         <img src="/repeat.svg" alt="Repetir" />
                     </button>
-                </div>
+                    </div>
+                    <div className={styles.volumeController}>
+                        { isMuted ? 
+                            <button
+                                type='button' 
+                                onClick={handleIsMuted}
+                                disabled={!episode}>
+                                <img src="/volume_off.svg" alt="Diminuir Volume"/>
+                            </button> : 
+                            <button
+                                type='button' 
+                                onClick={handleMuted}
+                                disabled={!episode}>
+                                <img src="/volume_up.svg" alt="Aumentar Volume"/>
+                            </button>
+                        }
+
+                        <Slider
+                            min={0}
+                            max={100}
+                            value={volume * 100}
+                            onChange={handleVolume}
+                            trackStyle={{ backgroundColor: '#04d361'}}
+                            railStyle={{ backgroundColor: '#9f75ff'}}
+                            handleStyle= {{ borderColor: '#04d361', borderWidth: 4}}
+                        />
+                    </div>
             </footer>
         </div>
     );

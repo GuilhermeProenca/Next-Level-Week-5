@@ -38,7 +38,7 @@ export default function Episode({ episode }: EpisodeProps) {
     } = DarkUsePlayer();
     
     return (
-        <div className={isDark ? styles.dark : ""}>
+        <div className={isDark ? styles.dark : styles.light}>
             <div className={isDark ? styles.darkEpisode : styles.episode}>
 
             <Head>

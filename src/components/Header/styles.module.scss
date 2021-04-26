@@ -1,4 +1,5 @@
 .headerContainer {
+    transition: 0.8s;
     background: var(--white);
     height: 6.5rem;
 
@@ -35,6 +36,7 @@
 .darkHeaderContainer {
     background: var(--dark-box);
     height: 6.5rem;
+    transition: 0.8s;
 
     display: flex;
     align-items: center;

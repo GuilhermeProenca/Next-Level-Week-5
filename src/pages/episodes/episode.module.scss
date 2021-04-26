@@ -86,6 +86,7 @@
 }
 
 .darkEpisode {
+  transition: 0.8s;
   color: var(--white);
 
   max-width: 45rem;
@@ -176,7 +177,15 @@
 }
 
 .dark {
+  transition: 0.8s;
   background: var(--dark-background);
+  width: 100%;
+  height: calc(100vh - 6.5rem);
+}
+
+.light {
+  transition: 0.8s;
+  background: var(--gray-50);
   width: 100%;
   height: calc(100vh - 6.5rem);
 }
