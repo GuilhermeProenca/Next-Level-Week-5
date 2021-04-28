@@ -3,7 +3,6 @@
 ### - ReactJS
 ### - TypeScript
 ### - NextJS
-### - NodeJS
 ### - HTML
 ### - CSS (with Sass)
 ### - Yarn or Npm
@@ -30,18 +29,19 @@ $ yarn server
 http://localhost:3000
 ```
 # 🏠 Home Page (Página Inicial)
-![Home](https://user-images.githubusercontent.com/34319735/115996353-462dc380-a5b5-11eb-9245-3f491dd3b897.png)
-![Home-Dark](https://user-images.githubusercontent.com/34319735/115996355-475ef080-a5b5-11eb-89b3-52463a9d701c.png)
+![Home](https://user-images.githubusercontent.com/34319735/116402987-6a7edf80-a803-11eb-93d3-e25e3620ee42.png)
+![Home-dark](https://user-images.githubusercontent.com/34319735/116402997-6e126680-a803-11eb-9472-8f203275f2e4.png)
 # 🎤 Playing Podcast (Reproduzindo Podcast)
-![Play](https://user-images.githubusercontent.com/34319735/115996356-47f78700-a5b5-11eb-97b2-a96ef970a4cd.png)
-![Play-Dark](https://user-images.githubusercontent.com/34319735/115996357-48901d80-a5b5-11eb-984c-f3245605dc5f.png)
+![Play](https://user-images.githubusercontent.com/34319735/116403005-710d5700-a803-11eb-89e5-2e3c683556ed.png)
+![Play-dark](https://user-images.githubusercontent.com/34319735/116403009-723e8400-a803-11eb-8d8a-d259aafdb93a.png)
 # 📖 Podcast Description (Descrição do Podcast)
-![Descrip](https://user-images.githubusercontent.com/34319735/115996359-48901d80-a5b5-11eb-82d1-d8eebd3aca35.png)
-![Descrip-Dark](https://user-images.githubusercontent.com/34319735/115996360-4928b400-a5b5-11eb-8dd1-33c77f45415f.png)
+![Descrip](https://user-images.githubusercontent.com/34319735/116403018-75397480-a803-11eb-8897-0ad9627eb222.png)
+![Descrip-dark](https://user-images.githubusercontent.com/34319735/116403026-766aa180-a803-11eb-924e-07cce2f7bbc9.png)
 # ℹ️ Options (Opções)
-![Option-List](https://user-images.githubusercontent.com/34319735/115937391-44a5b380-a46e-11eb-8bd1-f9e58a88ea6c.png)
+![Opt-num](https://user-images.githubusercontent.com/34319735/116403032-78346500-a803-11eb-9b1f-45b0867ca54c.png)
 ### 1 - Play/Pause (Iniciar/Parar)
 ### 2 - Previous (Anterior)
 ### 3 - Next (Próximo)
 ### 4 - Next Random (Próximo Aleatório)
 ### 5 - Starts Next When It Ends (Começar Próximo Quando Termina)
+### 6 - Volume Bar (Barra de Volume)
